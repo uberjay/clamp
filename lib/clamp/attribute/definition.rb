@@ -6,6 +6,7 @@ module Clamp
     class Definition
 
       def initialize(options)
+        @options = options
         if options.has_key?(:attribute_name)
           @attribute_name = options[:attribute_name].to_s
         end
@@ -17,7 +18,7 @@ module Clamp
         end
       end
 
-      attr_reader :description, :environment_variable
+      attr_reader :description, :environment_variable, :options
 
       def help_rhs
         description + default_description
